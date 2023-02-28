@@ -17,9 +17,8 @@ import Layout from 'components/templates/Layout'
 import UserProductCardListContainer from 'containers/UserProductCardListContainer'
 import UserProfileContainer from 'containers/UserProfileContainer'
 
-import { useGlobalSpinnerActionsContext } from 'contexts/GlobalSpinnerContext'
 import { useAuthContext } from 'contexts/AuthContext'
-
+import { useGlobalSpinnerActionsContext } from 'contexts/GlobalSpinnerContext'
 
 import getAllProducts from 'services/products/get-all-products'
 import getAllUsers from 'services/users/get-all-users'
@@ -38,25 +37,20 @@ const UserPage: NextPage<UserPageProps> = ({
   const { signout } = useAuthContext()
   const setGlobalSpinner = useGlobalSpinnerActionsContext()
 
-
   const handleSignOut = async () => {
-
-    try{
+    try {
       setGlobalSpinner(true)
-      console.log('signout');
+      console.log('signout')
       await signout()
-      
-    } finally{
+    } finally {
       setGlobalSpinner(false)
-      const redurectTo = '/';
+      const redurectTo = '/'
       await router.push(redurectTo)
     }
-
   }
   if (router.isFallback) {
     return <div>Loading...</div>
   }
-
   return (
     <Layout>
       <Flex

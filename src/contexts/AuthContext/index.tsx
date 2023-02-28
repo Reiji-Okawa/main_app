@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import useSWR from 'swr'
-import signout from 'services/auth/signout'
 import signin from 'services/auth/signin'
+import signout from 'services/auth/signout'
 import signup from 'services/auth/signup'
 import type { ApiContext, User } from 'types'
 

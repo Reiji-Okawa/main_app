@@ -45,7 +45,7 @@ const SigninPage: NextPage = () => {
               SignupFormのユーザー名・パスワードから認証APIを呼び出し、
               onSignupコールバックが呼び出される
             */}
-            <SignupFormContainer onSignup={handleSignup} />            
+            <SignupFormContainer onSignup={handleSignup} />
           </Box>
         </Flex>
       </Flex>
