@@ -3,11 +3,11 @@ import Link from 'next/link'
 
 import { useRouter } from 'next/router'
 import AppLogo from 'components/atoms/AppLogo'
+import Button from 'components/atoms/Button'
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
 import Layout from 'components/templates/Layout'
 import SigninFormContainer from 'containers/SigninFormContainer'
-import Button from 'components/atoms/Button'
 const SigninPage: NextPage = () => {
   const router = useRouter()
   // 認証後のイベントハンドラ
@@ -49,10 +49,8 @@ const SigninPage: NextPage = () => {
             <SigninFormContainer onSignin={handleSignin} />            
           </Box>
           <Box marginTop={2} width="100%">
-          <Link href="/signup">
-              <Button width="100%" >
-                  サインアップ
-              </Button>
+            <Link href="/signup">
+              <Button width="100%" >サインアップ</Button>
             </Link>
           </Box>
         </Flex>

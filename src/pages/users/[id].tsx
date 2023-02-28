@@ -7,8 +7,8 @@ import type {
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
-import Separator from 'components/atoms/Separator'
 import Button from 'components/atoms/Button'
+import Separator from 'components/atoms/Separator'
 
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
@@ -16,14 +16,15 @@ import Breadcrumb from 'components/molecules/Breadcrumb'
 import Layout from 'components/templates/Layout'
 import UserProductCardListContainer from 'containers/UserProductCardListContainer'
 import UserProfileContainer from 'containers/UserProfileContainer'
+
+import { useGlobalSpinnerActionsContext } from 'contexts/GlobalSpinnerContext'
+import { useAuthContext } from 'contexts/AuthContext'
+
+
 import getAllProducts from 'services/products/get-all-products'
 import getAllUsers from 'services/users/get-all-users'
 import getUser from 'services/users/get-user'
 
-import { useGlobalSpinnerActionsContext } from 'contexts/GlobalSpinnerContext'
-
-
-import { useAuthContext } from 'contexts/AuthContext'
 import type { ApiContext } from 'types'
 
 type UserPageProps = InferGetStaticPropsType<typeof getStaticProps>
@@ -38,14 +39,14 @@ const UserPage: NextPage<UserPageProps> = ({
   const setGlobalSpinner = useGlobalSpinnerActionsContext()
 
 
-  const handleSignOut = async() => {
+  const handleSignOut = async () => {
 
     try{
       setGlobalSpinner(true)
-      console.log("signout");
+      console.log('signout');
       await signout()
       
-    }finally{
+    } finally{
       setGlobalSpinner(false)
       const redurectTo = '/';
       await router.push(redurectTo)

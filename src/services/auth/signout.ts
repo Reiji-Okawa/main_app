@@ -7,7 +7,7 @@ import { fetcher } from 'utils'
  * @returns サインアウトメッセージ
  */
 const signout = async (context: ApiContext): Promise<{ message: string }> => {
-  console.log("reached")
+  console.log('reached')
   return await fetcher(
     `${context.apiRootUrl.replace(/\/$/g, '')}/auth/signout`,
     {
